@@ -10,12 +10,12 @@
 GET _cat/indices
 ```
 
-## verify that it has been index
+## verify that `sample-trec` has been successfully indexed
 ```
 GET sample-trec/_search
 ```
 
-## Check our hugging face model
+## Check hugging face model that we have pushed in Elasticsearch through eland(check docker-compose.yml)
 ```
 POST /_ml/trained_models/sentence-transformers__all-minilm-l6-v2/_infer
 {
@@ -110,7 +110,7 @@ GET _cat/indices
 GET sample-trec-with-embeddings/_search
 ```
 
-# Get an embedding of a sentence
+## Get an embedding of a sentence
 ```
 POST /_ml/trained_models/sentence-transformers__all-minilm-l6-v2/_infer
 {
@@ -120,7 +120,7 @@ POST /_ml/trained_models/sentence-transformers__all-minilm-l6-v2/_infer
 }
 ```
 
-# Neareast embedding search
+## Neareast embedding search
 ```
 GET sample-trec-with-embeddings/_knn_search
 {
