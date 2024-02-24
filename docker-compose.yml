@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - xpack.security.http.ssl.enabled=false
+      - xpack.license.self_generated.type=trial
+    volumes:
+      - ./elasticsearch-data:/home/shree/TAI/elastic-search/data
+    ports:
+      - 9200:9200
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:8.12.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+  eland:
+    container_name: eland
+    image: docker.elastic.co/eland/eland:latest
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    command: ["eland_import_hub_model", "--url", "http://elasticsearch:9200", "--hub-model-id", "sentence-transformers/all-MiniLM-L6-v2", "--task-type", text_embedding, "--start"]
+    depends_on:
+      - kibana
+    restart: on-failure
+
