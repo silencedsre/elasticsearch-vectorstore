@@ -1,4 +1,4 @@
-# Elasticsearch Vectorstore
+# Elasticsearch Vectorstore | Text Embeddings and Vector Search in Elasticsearch
 
 ## Steps
 * `sudo docker compose up`
@@ -10,7 +10,7 @@
 GET _cat/indices
 ```
 
-## verify that `sample-trec` has been successfully indexed
+## Verify that `sample-trec` has been successfully indexed
 ```
 GET sample-trec/_search
 ```
@@ -157,3 +157,6 @@ GET sample-trec-with-embeddings/_knn_search
   ]
 }
 ```
+
+## Reference
+* [How to deploy NLP: Text Embeddings and Vector Search](https://www.elastic.co/search-labs/blog/articles/how-to-deploy-nlp-text-embeddings-and-vector-search)
