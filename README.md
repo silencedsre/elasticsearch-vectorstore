@@ -3,6 +3,7 @@
 ## Steps
 * `sudo docker compose up`
 * Run `index_with_elasticsearch_dsl.ipynb` for indexing `sample-trec` data
+* Go to kibanna dev console: http://localhost:5601/app/dev_tools#/console
 
 ## Get all indices
 ```

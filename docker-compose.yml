@@ -9,7 +9,7 @@ services:
       - xpack.security.http.ssl.enabled=false
       - xpack.license.self_generated.type=trial
     volumes:
-      - ./elasticsearch-data:/home/shree/TAI/elastic-search/data
+      - ./elasticsearch-data:/elastic-search/data
     ports:
       - 9200:9200
   kibana:
