@@ -100,7 +100,7 @@ POST _reindex?wait_for_completion=false
 GET _tasks/<task_id>
 ```
 
-## Verify that the pipeline has been succesful and embeddings are created
+## Verify that the pipeline has been successful and embeddings are created
 
 ```
 GET _cat/indices
